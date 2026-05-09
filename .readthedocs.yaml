@@ -4,9 +4,10 @@ build:
   os: ubuntu-22.04
   tools:
     python: "3.11"
-  jobs:
-    build:
-      html:
-        # -c 指定包含 conf.py 的目录
-        # 最后一个参数 docs/source 是源文件目录
-        - sphinx-build -c docs/source -b html docs/source/ $READTHEDOCS_OUTPUT/html
+
+sphinx:
+  configuration: docs/source/conf.py
+
+python:
+  install:
+    - requirements: docs/requirements.txt
